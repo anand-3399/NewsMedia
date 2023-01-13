@@ -1,6 +1,6 @@
-# NewsMonkey React App
+# NewsMedia React App
 
-NewsMonkey is a React app that uses the News API to fetch news articles from various sources. It is a single page application that uses React Router to navigate between different pages.
+NewsMedia is a React app that uses the News API to fetch news articles from various sources. It is a single page application that uses React Router to navigate between different pages.
 
 ### Features
 
@@ -62,10 +62,8 @@ You may also see any lint errors in the console.
 
 ### Screenshots of the Web-Application
 
-https://user-images.githubusercontent.com/85798085/210736516-276f2d8e-1cc2-4606-a6ad-cae8eb4651d5.mp4
+![Home Page](image/README/1673622501114.png)
 
-![Home Page](image/README/1672815172884.png)
+![All Catrgories](image/README/1673622690519.png)
 
-![All Catrgories](image/README/1672815137529.png)
-
-![Infinite Scroll Added](image/README/1672815353849.png)
+![Infinite Scroll Added](image/README/1673622760513.png)

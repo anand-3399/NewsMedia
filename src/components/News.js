@@ -32,8 +32,9 @@ const News = (props) => {
     }
 
     useEffect(() => {
-        document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
+        document.title = `${capitalizeFirstLetter(props.category)} - NewsMedia`;
         updateNews();
+        // eslint-disable-next-line
     }, [])
 
     // Next and Previous page
@@ -60,7 +61,7 @@ const News = (props) => {
 
     return (
         <>
-            <h2 className="text-center" style={{ margin: '35px 0px', marginTop: '70px' }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h2>
+            <h2 className="text-center" style={{ margin: '35px 0px', marginTop: '70px' }}>NewsMedia - Top {capitalizeFirstLetter(props.category)} Headlines</h2>
             {loading && <Spinner />}
             <InfiniteScroll
                 dataLength={articles.length}
