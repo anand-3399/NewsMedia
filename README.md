@@ -64,6 +64,6 @@ You may also see any lint errors in the console.
 
 ![Home Page](image/README/1673622501114.png)
 
-![All Catrgories](image/README/1673622690519.png)
+![All Categories](image/README/1673622690519.png)
 
 ![Infinite Scroll Added](image/README/1673622760513.png)
