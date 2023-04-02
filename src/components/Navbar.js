@@ -1,10 +1,16 @@
 // import PropTypes from 'prop-types'
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = (props) => {
     let location = useLocation();
 
+    let history = useNavigate();
+    const handleLogout = () => {
+        props.showAlert("Logged out Successfully", "success");
+        localStorage.removeItem('token');
+        history("/");
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -28,7 +34,21 @@ const NavBar = () => {
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === "/Sports" ? "active" : ""}`} to="/Sports">Sports</Link></li>
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === "/Technology" ? "active" : ""}`} to="/Technology">Technology</Link></li>
                         </ul>
+
+
+                        {!localStorage.getItem('token') ?
+                            <form className="d-flex" role="search">
+                                <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
+                                <Link className="btn btn-primary mx-1" to="/signup" role="button">SignUp</Link>
+                            </form>
+                            :
+                            // eslint-disable-next-line
+                            <form className="d-flex" role="search"> <button className="btn btn-primary mx-1" role="button" onClick={handleLogout}>Logout</button>
+                            </form>
+                        }
+
                     </div>
+
                 </div>
             </nav>
         </div>
