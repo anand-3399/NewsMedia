@@ -39,6 +39,7 @@ router.post('/createuser', [
             name: req.body.name,
             password: secPass,
             email: req.body.email,
+            RecommendationOptions: req.body.RecommendationOptions
         });
 
         const data = {
@@ -49,7 +50,7 @@ router.post('/createuser', [
 
         const authToken = jwt.sign(data, JWT_SECRET);
         success = true;
-        res.json({ success, authToken })
+        res.json({ success, authToken, RecommendationOptions: req.body.RecommendationOptions })
 
 
     } catch (error) {
@@ -91,7 +92,7 @@ router.post('/login', [
         }
         success = true;
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ success, authToken })
+        res.json({ success, authToken, RecommendationOptions: user.RecommendationOptions })
 
     } catch (error) {
         console.error(error.message);

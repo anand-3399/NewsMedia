@@ -30,7 +30,8 @@ export default function Login(props) {
             localStorage.setItem('token', json.authToken);
             // Redirect
             props.showAlert("Logged in Successfully", "success");
-            history("/");
+            // history("/");
+            history(`/${json.RecommendationOptions}`);
 
         } else {
             props.showAlert("Invalid Credentials", "danger");

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function SignUp(props) {
 
-    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
+    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "", RecommendationOptions: "" })
     let history = useNavigate();
 
     const onChange = (e) => {
@@ -20,7 +20,7 @@ export default function SignUp(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password })
+            body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, RecommendationOptions: credentials.RecommendationOptions })
         });
 
         const json = await response.json();
@@ -30,7 +30,7 @@ export default function SignUp(props) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken);
             // Redirect
-            history("/");
+            history(`/${json.RecommendationOptions}`);
             props.showAlert("Account Created Successfully", "success");
         } else {
             props.showAlert("Invalid Details", "danger");
@@ -62,7 +62,41 @@ export default function SignUp(props) {
                     <input required minLength={5} type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                {/* Recommendation */}
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="General" value="General" checked onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio1">General</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Business" value="Business" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio2">Business</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Entertainment" value="Entertainment" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio1">Entertainment</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Health" value="Health" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio2">Health</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Science" value="Science" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio1">Science</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Sports" value="Sports" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio2">Sports</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input className="form-check-input" type="radio" name="RecommendationOptions" id="Technology" value="Technology" onChange={onChange} />
+                    <label className="form-check-label" htmlFor="inlineRadio1">Technology</label>
+                </div>
+
+
+
+                <div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
             </form>
 
         </div>

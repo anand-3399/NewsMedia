@@ -19,6 +19,10 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    RecommendationOptions: {
+        type: String,
+        default: 'General'
+    }
 });
 
 const User = mongoose.model('user', UserSchema);
