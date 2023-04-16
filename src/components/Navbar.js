@@ -11,13 +11,18 @@ const NavBar = (props) => {
         localStorage.removeItem('token');
         history("/");
     }
+    const openInNewTab = (url) => {
+        window.open(url, '_blank', 'noreferrer');
+    };
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/"><img src="logo2.jpg" alt="Logo" className='mx-4' style={{
                         height: "29px",
-                        width: "38px"
+                        width: "38px",
+                        borderRadius: "15%",
                     }} />NewsMedia</Link>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +48,12 @@ const NavBar = (props) => {
                             </form>
                             :
                             // eslint-disable-next-line
-                            <form className="d-flex" role="search"> <button className="btn btn-primary mx-1" role="button" onClick={handleLogout}>Logout</button>
+                            <form className="d-flex" role="search">
+                                <button className="btn btn-primary mx-1" role="button" onClick={handleLogout}>Logout</button>
                             </form>
                         }
 
+                        <button className="btn btn-primary mx-1" role="button" onClick={() => openInNewTab('https://amanjaiswar28.github.io/I-Magazine/')}>I-Magazine</button>
                     </div>
 
                 </div>

@@ -15,5 +15,5 @@ app.use('/api/auth', require('./routes/auth'))
 
 
 app.listen(port, () => {
-  console.log(`iNotebook backend listening at http://localhost:${port}`)
+  console.log(`NewsMedia backend listening at http://localhost:${port}`)
 })
